@@ -1,11 +1,13 @@
 <template>
-  <img id="logo" alt="Wails logo" src="./assets/images/logo-universal.png"/>
-  <HelloWorld/>
+  <img id="logo" alt="Wails logo" src="./assets/images/dmark.png"/>
 
-  <div>
+  <div class="app-container">
+    <h1 class="title">Solo Leveling To-Do</h1>
+
     <TodoInput @add-task="handleAddTask" />
-    <ul class="mt-6 space-y-2">
-      <li v-for="task in tasks" :key="task.id" class="text-white">
+
+    <ul class="task-list">
+      <li v-for="task in tasks" :key="task.id" :class="{ completed: task.completed }">
         {{ task.text }}
       </li>
     </ul>
@@ -16,6 +18,7 @@
 import TodoInput from "./components/TodoInput.vue";
 
 export default {
+  name: "App",
   components: { TodoInput },
   data() {
     return {
@@ -24,6 +27,7 @@ export default {
   },
   methods: {
     handleAddTask(taskText) {
+      if (taskText.trim() === "") return;
       this.tasks.push({
         id: Date.now(),
         text: taskText,
@@ -35,16 +39,37 @@ export default {
 </script>
 
 
-<style>
-#logo {
-  display: block;
-  width: 50%;
-  height: 50%;
-  margin: auto;
-  padding: 10% 0 0;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  background-origin: content-box;
+<style scoped>
+.app-container {
+  background-color: #0a0a0a;
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: 'Arial', sans-serif;
+  color: white;
+}
+
+.title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.task-list {
+  margin-top: 1.5rem;
+  list-style: none;
+  padding: 0;
+}
+
+.task-list li {
+  padding: 0.5rem 1rem;
+  border: 1px solid #333;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.task-list li.completed {
+  text-decoration: line-through;
+  color: #888;
 }
 </style>

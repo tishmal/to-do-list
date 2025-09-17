@@ -24,3 +24,8 @@ body {
     height: 100vh;
     text-align: center;
 }
+
+#logo {
+  width: 300px; /* Задаем ширину 150 пикселей */
+  height: auto; /* Высота будет автоматически пропорциональной */
+}
