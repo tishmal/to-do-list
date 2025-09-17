@@ -1,31 +1,137 @@
-html {
-    background-color: rgba(27, 38, 54, 1);
-    text-align: center;
-    color: white;
-}
-
-body {
-    margin: 0;
-    color: white;
-    font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-}
-
-@font-face {
-    font-family: "Nunito";
-    font-style: normal;
-    font-weight: 400;
-    src: local(""),
-    url("assets/fonts/nunito-v16-latin-regular.woff2") format("woff2");
-}
-
 #app {
-    height: 100vh;
+    height: 600vh;
     text-align: center;
+}
+
+.app-wrapper {
+  background-color: #0a0a0a;
+  min-height: 100vh;
+  padding: 3rem;
+  font-family: 'Arial', sans-serif;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #logo {
-  width: 300px; /* Задаем ширину 150 пикселей */
-  height: auto; /* Высота будет автоматически пропорциональной */
+  width: 190px;
+  height: auto;
+  margin: 1rem 0 2rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #ffcc00;
+  text-shadow: 0 0 10px #ffcc00;
+}
+
+.todo-input-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.todo-input-wrapper input {
+  flex: 1;
+  padding: 0.8rem 1rem;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background-color: #111;
+  color: white;
+  margin-right: 0.5rem;
+}
+
+.todo-input-wrapper button {
+  padding: 0.8rem 1.2rem;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  border: none;
+  background-color: #ffcc00;
+  color: #000;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.todo-input-wrapper button:hover {
+  transform: scale(1.05);
+  background-color: #ffc107;
+}
+
+.filter-buttons, .sort-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.7rem;
+  margin-bottom: 1rem;
+}
+
+.filter-buttons button, .sort-buttons button {
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #222;
+  color: white;
+  cursor: pointer;
+}
+
+.filter-buttons button.active, .sort-buttons button.active {
+  background-color: #ffcc00;
+  color: #000;
+}
+
+.task-list {
+  margin-top: 1.5rem;
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  max-width: 500px;
+}
+
+.task-list li {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  border: 1px solid #333;
+  border-radius: 8px;
+  margin-bottom: 0.7rem;
+  transition: all 0.3s ease;
+  background: linear-gradient(90deg, #111 0%, #1a1a1a 100%);
+}
+
+.task-list li.completed .task-text {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.task-text {
+  flex: 1;
+  margin-left: 0.7rem;
+  font-size: 1.2rem;
+}
+
+.delete-btn {
+  background-color: #ff4d4f;
+  border: none;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 1rem;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.delete-btn:hover {
+  transform: scale(1.2);
+  background-color: #ff7875;
+}
+
+/*галочка*/
+input[type="checkbox"] {
+  width: 23px;
+  height: 23px;
+  cursor: pointer;
 }
